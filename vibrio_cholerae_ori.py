@@ -1,22 +1,24 @@
 ori="ATCAATGATCAACGTAAGCTTCTAAGCATGATCAAGGTGCTCACACAGTTTATCCACAACCTGAGTGGATGACATCAAGATAGGTCGTTGTATCTCCTTCCTCTCGTACTCTCATGACCACGGAAAGATGATCAAGAGAGGATGATTTCTTGGCCATATCGCAATGAATACTTGTGACTTGTGCTTCCAATTGACATCTTCAGCGCCATATTGCGCTGGCCAAGGTGACGGAGCGGGATTACGAAAGCATGATCATGGCTGTTGTTCTGTTTATCTTGTTTTGACTGAGACTTGTTAGGATAGACGGTTTTTCATCACTGACTAGCCAAAGCCTTACTCTGCCTGACATCGACCGTAAATTGATAATGAATTTACATGCTTCCGCGACGATTTACCTCTTGATCATCGATCCGATTGAAGATCTTCAATTGTTAATTCTCTTGCCTCGACTCATAGCCATGATGAGCTCTTGATCATGTTTCCTTAACCCTCTATTTTTTACGGAAGAATGATCAAGCTGCTGCTCTTGATCATCGTTTC"
 
-'''def PatternCount(text, k_mer):
-    count_er= 0
-    start_index= 0
-    for i in range(len(text)):
-        j = ori.find(k_mer,start_index)
-    if(j!=-1):
-        start_index = j+1
-        count_er+=1
-    print("Total occurrences are: ", count_er)
-
-PatternCount(ori, "ATCAAT")'''
-
-count = 0
 def PatternCount(text, pattern):
+    count = 0
     for i in range(len(text) - len(pattern) + 1):
         if text[i:i+len(pattern)] == pattern:
             count = count + 1
-            return count
+    return count
 
+def FrequencyMap(text, k):
+    freq = {}
+    n = len(text)
+    for i in range(n-k+1):
+        pattern = text[i:i+k]
+        freq[pattern] = 0
+    for i in freq:
+        count = 0
+        freq[i] = PatternCount(text, i) 
+        count += 1
+    return freq
+
+test = FrequencyMap(ori, 3)
+print(test)
 
