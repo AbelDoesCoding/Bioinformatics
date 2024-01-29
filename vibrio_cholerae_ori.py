@@ -39,13 +39,21 @@ def Reverse(pattern):
         revString = i + revString
     return revString
 
-gup = "feeb"
-x = Reverse(gup)
-print(x)
+def Complement(pattern):
+    complementPattern = ""
+    for i in pattern:
+        if i == "A":
+            complementPattern = complementPattern + "T"
+        elif i == "C":
+            complementPattern = complementPattern + "G"
+        elif i == "G":
+            complementPattern = complementPattern + "C"
+        elif i == "T":
+            complementPattern = complementPattern + "A"
+    return complementPattern
 
-
-#ierate over string
-#add char to new string
-#add next char behind first
+test = "TGCA"
+gup = Complement(test)
+print(gup)
 
 
