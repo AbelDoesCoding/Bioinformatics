@@ -19,6 +19,33 @@ def FrequencyMap(text, k):
         count += 1
     return freq
 
-test = FrequencyMap(ori, 3)
-print(test)
+def FrequentWords(text, k):
+    words = []
+    freq = FrequencyMap(text, k)
+    m = max(freq.values())
+    for key in freq:
+        if freq[key] == m:
+            words.append(key)
+    return words
+
+def ReverseComplement(pattern):
+    pattern = Reverse(pattern)
+    pattern = Complement(pattern)
+    return pattern
+
+def Reverse(pattern):
+    revString = ""
+    for i in pattern:
+        revString = i + revString
+    return revString
+
+gup = "feeb"
+x = Reverse(gup)
+print(x)
+
+
+#ierate over string
+#add char to new string
+#add next char behind first
+
 
