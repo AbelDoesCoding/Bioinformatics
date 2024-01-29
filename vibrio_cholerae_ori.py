@@ -52,8 +52,14 @@ def Complement(pattern):
             complementPattern = complementPattern + "A"
     return complementPattern
 
-test = "TGCA"
-gup = Complement(test)
-print(gup)
-
+def PatternMatching(pattern, genome):
+    locations = []
+    count = 0
+    for i in range(len(genome) - len(pattern) + 1):
+        if genome[i:i+len(pattern)] == pattern:
+            locations.append[count]
+            count += 1
+        else:
+            count +=1
+    return locations
 
